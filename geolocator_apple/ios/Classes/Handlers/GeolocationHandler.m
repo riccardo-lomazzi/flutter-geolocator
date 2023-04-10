@@ -170,10 +170,6 @@ double const kMaxLocationLifeTimeInSeconds = 5.0;
         "Error reason: %@"
         "Error description: %@", error.localizedFailureReason, error.localizedDescription);
   
-  if([error.domain isEqualToString:kCLErrorDomain] && error.code == kCLErrorLocationUnknown) {
-    return;
-  }
-  
   if (self.errorHandler) {
     self.errorHandler(GeolocatorErrorLocationUpdateFailure, error.localizedDescription);
   }
